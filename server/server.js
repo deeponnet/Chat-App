@@ -22,32 +22,39 @@ MongoClient.connect('mongodb://admin:admin@ds161856.mlab.com:61856/class', (err,
 	io.on('connection', (socket) => {
 		console.log('new user connected');
 
-	/*socket.emit('newEmail', {
-		from: 'abc@gmail.com',
-		text: 'hiii There..'
-	}); */
+		/*socket.emit('newEmail', {
+			from: 'abc@gmail.com',
+			text: 'hiii There..'
+		}); */
 
-	socket.on('createMessage', (message, callback) => {
-		console.log('New message: ', message);
-		db.collection('lecturerooom').insertOne(
-		{
-			"room" : message.room,
-	        "floor" : message.floor,
-	        "block" : message.block,
-	        "des" : message.des
-			}, (err, result) => {
-				if(err) {
-					return console.log('unable to insert ToDo', err);
-				}
+		socket.on('createMessage', (message, callback) => {
+			console.log('New message: ', message);
+			db.collection('lecturerooom').insertOne(
+			{
+				"room" : message.room,
+		        "floor" : message.floor,
+		        "block" : message.block,
+		        "des" : message.des
+				}, (err, result) => {
+					if(err) {
+						return console.log('unable to insert Room', err);
+					}
+					console.log(JSON.stringify(result.ops, undefined, 2));
+				});
+			callback();
+		});
 
-				console.log(JSON.stringify(result.ops, undefined, 2));
+		socket.on('createRequest', (message, callback) => {
+			console.log('New message: ', message);
+			db.collection("lecturerooom").find( {"room" : message.room }).toArray(function(err, result) {
+			    if (err) throw err;
+			    console.log(result);
+			    //console.log(result[0].floor);
+			    socket.emit('gotRoomDetails', result);
+				}); 
 			});
-		callback();
+		});	
 	});
-	});
-
-	
-});
 
 server.listen(port, () => {
 	console.log(`server is up on ${port}`);
