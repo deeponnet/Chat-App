@@ -25,6 +25,10 @@ var socket = io();
 			var floor = message[0].floor;
 			var des = message[0].des;
 			console.log(room);
+			document.getElementById("room").innerHTML = "Room : "
+			document.getElementById("floor").innerHTML = "Floor : "
+			document.getElementById("block").innerHTML = "Block : "
+			document.getElementById("des").innerHTML = "Description : "
 			jQuery('#room').append(room);
 			jQuery('#block').append(block);
 			jQuery('#floor').append(floor);
@@ -32,16 +36,15 @@ var socket = io();
 		});
 
 
-	jQuery('#message-form').on('submit', function(e) {
+	jQuery('#adddetails').on('submit', function(e) {
 		e.preventDefault();
 		console.log(jQuery('[name=room]').val());
-		socket.emit('createMessage', {
+		socket.emit('addroom', {
+		"type" : jQuery('[id=type]').val(),
 		"room" : jQuery('[name=room]').val(),
 		"floor" : jQuery('[name=floor]').val(),
 		"block" : jQuery('[name=block]').val(),
 		"des" : jQuery('[name=des]').val(),
-	}, function() {
-		console.log('got it');
 	});
 	});
 
