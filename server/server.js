@@ -31,11 +31,10 @@ MongoClient.connect('mongodb://admin:admin@ds161856.mlab.com:61856/class', (err,
 		console.log('New message: ', message);
 		db.collection('lecturerooom').insertOne(
 		{
-		    "lecture" : {
-		        "floor" : message.floor,
-		        "block" : message.block,
-		        "des" : message.des
-		    }
+			"room" : message.room,
+	        "floor" : message.floor,
+	        "block" : message.block,
+	        "des" : message.des
 			}, (err, result) => {
 				if(err) {
 					return console.log('unable to insert ToDo', err);

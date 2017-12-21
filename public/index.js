@@ -8,10 +8,10 @@ var socket = io();
 		e.preventDefault();
 
 		socket.emit('createMessage', {
-		"lecture" : jQuery('[name=room]').val(),
+		"room" : jQuery('[name=room]').val(),
 		"floor" : jQuery('[name=floor]').val(),
 		"block" : jQuery('[name=block]').val(),
-		"des" : ""
+		"des" : jQuery('[name=des]').val(),
 	}, function() {
 		console.log('got it');
 	});
