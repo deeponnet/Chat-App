@@ -34,6 +34,8 @@ var socket = io();
 			var floor = message[0].floor;
 			console.log(room);
 			jQuery('#room').append(room);
+			jQuery('#block').append(block);
+			jQuery('#floor').append(floor);
 			});
 
 
