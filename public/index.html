@@ -1,31 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Chat App</title>
+	<title>Jiit-128 Academic Infrastructre</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
 </head>
 <body>
-<h1>Chat working fine.........</h1>
-<!---
-<form id="message-form">
-	<input type="text" name="room" placeholder="room"/>
-	<input type="text" name="floor" placeholder="floor"/>
-	<input type="text" name="block" placeholder="block"/>
-	<input type="text" name="des" placeholder="description"/>
-	<button>Send</button>
-</form>
--->
-<form id="request-form">
-	<input type="text" name="room" placeholder="room"/>
-	<button>Send</button>
-</form>
-<br>
-<div id="room"></div>
-<br><br><br>
-<div id="floor"></div>
-<br><br><br>
-<div id="block"></div>
-<br><br><br>
-<div id="block"></div>
+
+	<section class="section">
+    	<div class="container">
+      		<p class="title is-3 is-spaced">Select From Following Room To Get Details</p>
+
+      		<div class="columns">
+			  	<div class="column is-two-thirds">
+				    	<p class="subtitle is-5">Lectures Rooms</p>
+							<div class="field">
+							  <div class="control">
+							    <div class="select is-primary">
+							      <select id="lecture" onchange="lecture()">
+							        <option value="LT-1">LT-1</option>
+							        <option value="LT-2">LT-2</option>
+							        <option value="LT-3">LT-3</option>
+							        <option value="LT-4">LT-4</option>
+							        <option value="LT-5">LT-5</option>
+							        <option value="LT-6">LT-6</option>
+							        <option value="LT-7">LT-7</option>
+							        <option value="LT-8">LT-8</option>
+							        <option value="LT-9">LT-9</option>
+							      </select>
+							    </div>
+							  </div>
+						</div>
+					</div>
+					<div class="column" id="room">Room :  </div>
+			</div>
+
+			<div class="columns">
+			  	<div class="column is-two-thirds">
+				    	<p class="subtitle is-5">Tutorials Rooms</p>
+							<div class="field">
+							  <div class="control">
+							    <div class="select is-primary">
+							      <select id="tutorial" onchange="tutorial()">
+							        <option value="T-1">T-1</option>
+							        <option value="T-2">T-2</option>
+							        <option value="T-3">T-3</option>
+							        <option value="T-4">T-4</option>
+							        <option value="T-5">T-5</option>
+							        <option value="T-6">T-6</option>
+							      </select>
+							    </div>
+							  </div>
+						</div>
+					</div>
+				<div class="column" id="floor">Floor: </div>
+			</div>
+
+			<div class="columns">
+			  	<div class="column is-two-thirds">
+					<p class="subtitle is-5">Teachers Cabins</p>
+					<div class="field">
+					  <div class="control">
+					    <div class="select is-warning">
+					      <select>
+					        <option>Select dropdown</option>
+					        <option>With options</option>
+					      </select>
+					    </div>
+					  </div>
+					</div>
+				</div>
+				<div class="column" id="block">Block : </div>
+			</div>
+
+			<div class="columns">
+			  	<div class="column is-two-thirds">
+					<p class="subtitle is-5">Labs</p>
+					<div class="field">
+					  <div class="control">
+					    <div class="select is-info">
+					      <select>
+					        <option>Select dropdown</option>
+					        <option>With options</option>
+					      </select>
+					    </div>
+					  </div>
+					</div>
+				</div>
+				<div class="column" id="des">Description : </div>
+			</div>
+			<br>
+			<p class="subtitle is-5" >Missing Some Details...Add Here:)</p>
+			<a class="button is-link is-outlined" onclick="window.location.href='/add/index.html'">Add</a>
+
+    	</div>
+  	</section>
 
 <script type="text/javascript" src="/libs/jquery.js"></script>
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>

@@ -29,7 +29,7 @@ MongoClient.connect('mongodb://admin:admin@ds161856.mlab.com:61856/class', (err,
 
 		socket.on('createMessage', (message, callback) => {
 			console.log('New message: ', message);
-			db.collection('lecturerooom').insertOne(
+			db.collection('lectureroom').insertOne(
 			{
 				"room" : message.room,
 		        "floor" : message.floor,
@@ -44,15 +44,24 @@ MongoClient.connect('mongodb://admin:admin@ds161856.mlab.com:61856/class', (err,
 			callback();
 		});
 
-		socket.on('createRequest', (message, callback) => {
+		socket.on('lectureRequest', (message, callback) => {
 			console.log('New message: ', message);
-			db.collection("lecturerooom").find( {"room" : message.room }).toArray(function(err, result) {
+			db.collection("lectureroom").find( {"room" : message.room }).toArray(function(err, result) {
 			    if (err) throw err;
 			    console.log(result);
-			    //console.log(result[0].floor);
 			    socket.emit('gotRoomDetails', result);
 				}); 
 			});
+
+		socket.on('tutorialRequest', (message, callback) => {
+			console.log('New message: ', message);
+			db.collection("tutorialroom").find( {"room" : message.room }).toArray(function(err, result) {
+			    if (err) throw err;
+			    console.log(result);
+			    socket.emit('gotRoomDetails', result);
+				}); 
+			});
+
 		});	
 	});
 

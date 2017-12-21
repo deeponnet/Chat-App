@@ -4,7 +4,35 @@ var socket = io();
 		console.log('new server connected');
 	});
 
-	/*jQuery('#message-form').on('submit', function(e) {
+	function lecture() {
+	    var lec = document.getElementById("lecture").value;
+	    socket.emit('lectureRequest', {
+			"room" : lec
+		});
+	};
+
+	function tutorial() {
+	    var tut = document.getElementById("tutorial").value;
+	    socket.emit('tutorialRequest', {
+			"room" : tut
+		});
+	};
+
+	socket.on('gotRoomDetails', function(message) {
+			console.log('New message: ', message);
+			var room = message[0].room;
+			var block = message[0].block;
+			var floor = message[0].floor;
+			var des = message[0].des;
+			console.log(room);
+			jQuery('#room').append(room);
+			jQuery('#block').append(block);
+			jQuery('#floor').append(floor);
+			jQuery('#des').append(des);
+		});
+
+
+	jQuery('#message-form').on('submit', function(e) {
 		e.preventDefault();
 		console.log(jQuery('[name=room]').val());
 		socket.emit('createMessage', {
@@ -15,27 +43,9 @@ var socket = io();
 	}, function() {
 		console.log('got it');
 	});
-	});*/
-
-	jQuery('#request-form').on('submit', function(e) {
-		e.preventDefault();
-		console.log(jQuery('[name=room]').val());
-		socket.emit('createRequest', {
-		"room" : jQuery('[name=room]').val()
-	}, function() {
-		console.log('got it');
-	});
 	});
 
-	socket.on('gotRoomDetails', function(message) {
-			console.log('New message: ', message);
-			var room = message[0].room;
-			var block = message[0].block;
-			var floor = message[0].floor;
-			console.log(room);
-			jQuery('#room').append(room);
-			jQuery('#block').append(block);
-			jQuery('#floor').append(floor);
-			});
+
+	
 
 
