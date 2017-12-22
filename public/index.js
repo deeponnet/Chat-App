@@ -117,7 +117,6 @@ var socket = io();
 	});
 
 	socket.on('addRoomResponse', function(txt){
-		document.getElementById("responseMessage").innerHTML = "";
 		document.getElementById("responseMessage").innerHTML = txt;
 	});
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
