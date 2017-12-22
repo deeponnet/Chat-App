@@ -1,7 +1,7 @@
 var socket = io();
 
 	socket.on('connect', function() {
-		console.log('new server connected');
+		//console.log('new server connected');
 	});
 //////////////////////////////////////////////Dropdown option fetching//////////////////////////////////////////////////////////
 	function initDropdownList( id, arr ) {
@@ -11,33 +11,33 @@ var socket = io();
 	        option = document.createElement( 'option' );
 	        option.value = arr[i];
 	        option.text = arr[i];
-	        console.log(option);
+	        //console.log(option);
 	        select.appendChild(option);
 	    };
 	};
 
 	socket.on('allLectures', function(lectureArray) {
-		console.log(lectureArray);
+		//console.log(lectureArray);
 		initDropdownList('lecture', lectureArray);
 	});
 
 	socket.on('allTutorials', function(tutorialArray) {
-		console.log(tutorialArray);
+		//console.log(tutorialArray);
 		initDropdownList('tutorial', tutorialArray);
 	});
 
 	socket.on('allLabs', function(labArray) {
-		console.log(labArray);
+		//console.log(labArray);
 		initDropdownList('lab', labArray);
 	});
 
 	socket.on('allCabins', function(cabinArray) {
-		console.log(cabinArray);
+		//console.log(cabinArray);
 		initDropdownList('cabin', cabinArray);
 	});
 
 	socket.on('allClass', function(classArray) {
-		console.log(classArray);
+		//console.log(classArray);
 		initDropdownList('class', classArray);
 	});
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,7 +83,6 @@ var socket = io();
 			var block = message[0].block;
 			var floor = message[0].floor;
 			var des = message[0].des;
-			console.log(room);
 			document.getElementById("room").innerHTML = "Room : "
 			document.getElementById("floor").innerHTML = "Floor : "
 			document.getElementById("block").innerHTML = "Block : "
@@ -117,6 +116,7 @@ var socket = io();
 	});
 
 	socket.on('addRoomResponse', function(txt){
+		console.log(txt);
 		document.getElementById("responseMessage").innerHTML = txt;
 	});
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -80,11 +80,11 @@ MongoClient.connect('mongodb://admin:admin@ds161856.mlab.com:61856/class', (err,
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////aading room to databse//////////////////////////////////////////////////////////////////////////////////////////////
 		socket.on('addroom', (message) => {
-			console.log('New message: ', message);
+			//console.log('New message: ', message);
 			if(message.type=='tutorial'){
 				db.collection("tutorialroom").find( {"room" : message.room }).toArray(function(err, result) {
 			    if (err) throw err;
-			    console.log(result);
+			    //console.log(result);
 			    if(result.length != 0){
 			    	//console.log('already present');
 			    	socket.emit('addRoomResponse', 'Room You Are Adding Is Already Present On Database.!!');
@@ -110,7 +110,7 @@ MongoClient.connect('mongodb://admin:admin@ds161856.mlab.com:61856/class', (err,
 			if(message.type=='lecture'){
 				db.collection("lectureroom").find( {"room" : message.room }).toArray(function(err, result) {
 			    if (err) throw err;
-			    console.log(result);
+			   // console.log(result);
 			    if(result.length != 0){
 			    	//console.log('already present');
 			    	socket.emit('addRoomResponse', 'Room You Are Adding Is Already Present On Database.!!');
@@ -135,7 +135,7 @@ MongoClient.connect('mongodb://admin:admin@ds161856.mlab.com:61856/class', (err,
 			if(message.type=='classroom'){
 				db.collection("classroom").find( {"room" : message.room }).toArray(function(err, result) {
 			    if (err) throw err;
-			    console.log(result);
+			    ///console.log(result);
 			    if(result.length != 0){
 			    	//console.log('already present');
 			    	socket.emit('addRoomResponse', 'Room You Are Adding Is Already Present On Database.!!');
@@ -161,7 +161,7 @@ MongoClient.connect('mongodb://admin:admin@ds161856.mlab.com:61856/class', (err,
 			if(message.type=='lab'){
 				db.collection("lab").find( {"room" : message.room }).toArray(function(err, result) {
 			    if (err) throw err;
-			    console.log(result);
+			    //console.log(result);
 			    if(result.length != 0){
 			    	//console.log('already present');
 			    	socket.emit('addRoomResponse', 'Room You Are Adding Is Already Present On Database.!!');
@@ -187,7 +187,7 @@ MongoClient.connect('mongodb://admin:admin@ds161856.mlab.com:61856/class', (err,
 			if(message.type=='cabin'){
 				db.collection("cabin").find( {"room" : message.room }).toArray(function(err, result) {
 			    if (err) throw err;
-			    console.log(result);
+			    //console.log(result);
 			    if(result.length != 0){
 			    	//console.log('already present');
 			    	socket.emit('addRoomResponse', 'Room You Are Adding Is Already Present On Database.!!');
@@ -214,46 +214,46 @@ MongoClient.connect('mongodb://admin:admin@ds161856.mlab.com:61856/class', (err,
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////responding to queries/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		socket.on('lectureRequest', (message, callback) => {
-			console.log('New message: ', message);
+			//console.log('New message: ', message);
 			db.collection("lectureroom").find( {"room" : message.room }).toArray(function(err, result) {
 			    if (err) throw err;
-			    console.log(result);
+			   // console.log(result);
 			    socket.emit('gotRoomDetails', result);
 				}); 
 			});
 
 		socket.on('tutorialRequest', (message, callback) => {
-			console.log('New message: ', message);
+			//console.log('New message: ', message);
 			db.collection("tutorialroom").find( {"room" : message.room }).toArray(function(err, result) {
 			    if (err) throw err;
-			    console.log(result);
+			  //  console.log(result);
 			    socket.emit('gotRoomDetails', result);
 				}); 
 			});
 
 		socket.on('labRequest', (message, callback) => {
-			console.log('New message: ', message);
+			//console.log('New message: ', message);
 			db.collection("lab").find( {"room" : message.room }).toArray(function(err, result) {
 			    if (err) throw err;
-			    console.log(result);
+			  //  console.log(result);
 			    socket.emit('gotRoomDetails', result);
 				}); 
 			});
 
 		socket.on('classRequest', (message, callback) => {
-			console.log('New message: ', message);
+			//console.log('New message: ', message);
 			db.collection("classroom").find( {"room" : message.room }).toArray(function(err, result) {
 			    if (err) throw err;
-			    console.log(result);
+			    //console.log(result);
 			    socket.emit('gotRoomDetails', result);
 				}); 
 			});
 
 		socket.on('cabinRequest', (message, callback) => {
-			console.log('New message: ', message);
+			//console.log('New message: ', message);
 			db.collection("cabin").find( {"room" : message.room }).toArray(function(err, result) {
 			    if (err) throw err;
-			    console.log(result);
+			   // console.log(result);
 			    socket.emit('gotRoomDetails', result);
 				}); 
 			});
