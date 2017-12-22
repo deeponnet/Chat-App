@@ -77,6 +77,11 @@ MongoClient.connect('mongodb://admin:admin@ds161856.mlab.com:61856/class', (err,
 		    classArray.sort();
 		    socket.emit('allClass', classArray);
 		});
+		
+		db.collection("pass").find().toArray(function(err, result) {
+		    if (err) throw err;
+		    socket.emit('auth', result[0].num);
+		});
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////aading room to databse//////////////////////////////////////////////////////////////////////////////////////////////
 		socket.on('addroom', (message) => {

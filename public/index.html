@@ -86,7 +86,26 @@
 
 			<br>
 			<p class="subtitle is-5" >Some Missing Details...Add Here:)</p>
-			<a class="button is-link is-outlined" onclick="window.location.href='/add/index.html'">Add</a>
+			<div class="columns">
+				<div class="column is-one-third">
+					<a class="button is-link is-outlined" id="addButton" >Add</a>
+				</div>
+			</div>
+			
+			<form id="addForm" style="display: none">
+				<div class="columns">
+					<div class="column is-one-third">
+						<div class="field">
+						  <div class="control">
+							<input class="input is-primary" type="text" id="code" placeholder="Enter Password">
+						  </div>
+						</div>
+					</div>
+					<div class="column">
+						<a class="button is-primary is-outlined" id="submitButton" >Submit</a>
+					</div>
+				</div>
+			</form>
 
     	</div>
   	</section>
@@ -94,6 +113,24 @@
 <script type="text/javascript" src="/libs/jquery.js"></script>
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="/index.js"></script>
-
+<script>
+		$( document ).ready( function() {
+		$( "#addButton" ).click( function() {
+			$( "#addForm" ).toggle( 'slow' );
+		});
+		
+		$( "#submitButton" ).click( function() {
+			var password = document.getElementById("code").value;
+			if( password == originalPassword){
+				window.location.href='/add/index.html';
+			}
+			else{
+				window.alert("Wrong Password..Try Again");
+			}
+			});
+		
+	});
+	//onclick="window.location.href='/add/index.html'"
+</script>
 </body>
 </html>

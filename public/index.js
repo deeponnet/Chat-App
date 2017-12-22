@@ -1,3 +1,4 @@
+var originalPassword;
 var socket = io();
 
 	socket.on('connect', function() {
@@ -15,7 +16,6 @@ var socket = io();
 	        select.appendChild(option);
 	    };
 	};
-
 	socket.on('allLectures', function(lectureArray) {
 		//console.log(lectureArray);
 		initDropdownList('lecture', lectureArray);
@@ -39,6 +39,10 @@ var socket = io();
 	socket.on('allClass', function(classArray) {
 		//console.log(classArray);
 		initDropdownList('class', classArray);
+	});
+	
+	socket.on('auth', function(str) {
+		originalPassword = str;
 	});
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////queries requesting///////////////////////////////////////////////////////////////////
@@ -76,7 +80,7 @@ var socket = io();
 			"room" : cab
 		});
 	};
-
+	
 	socket.on('gotRoomDetails', function(message) {
 			console.log('New message: ', message);
 			var room = message[0].room;
@@ -103,7 +107,11 @@ var socket = io();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////adding room request//////////////////////////////////////////////////////////////////////////////
-
+$( document ).ready( function() {
+    $( "#signup" ).click( function() {
+        $( "#form1" ).toggle( 'slow' );
+    });
+});
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	
