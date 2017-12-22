@@ -12,82 +12,78 @@
 
       		<div class="columns">
 			  	<div class="column is-two-thirds">
-				    	<p class="subtitle is-5">Lectures Rooms</p>
+				    	<p class="subtitle is-5" style="color: hsl(171, 100%, 41%)">Lectures Rooms</p>
 							<div class="field">
 							  <div class="control">
 							    <div class="select is-primary">
 							      <select id="lecture" onchange="lecture()">
-							        <option value="LT-1">LT-1</option>
-							        <option value="LT-2">LT-2</option>
-							        <option value="LT-3">LT-3</option>
-							        <option value="LT-4">LT-4</option>
-							        <option value="LT-5">LT-5</option>
-							        <option value="LT-6">LT-6</option>
-							        <option value="LT-7">LT-7</option>
-							        <option value="LT-8">LT-8</option>
-							        <option value="LT-9">LT-9</option>
 							      </select>
 							    </div>
 							  </div>
 						</div>
 					</div>
-					<div class="column" id="room">Room :  </div>
+					<div class="column subtitle is-5" id="room" style="color: hsl(217, 71%, 53%)">Room :  </div>
 			</div>
 
 			<div class="columns">
 			  	<div class="column is-two-thirds">
-				    	<p class="subtitle is-5">Tutorials Rooms</p>
+				    	<p class="subtitle is-5" style="color: hsl(141, 71%, 48%);">Tutorials Rooms</p>
 							<div class="field">
 							  <div class="control">
-							    <div class="select is-primary">
+							    <div class="select is-success">
 							      <select id="tutorial" onchange="tutorial()">
-							        <option value="T-1">T-1</option>
-							        <option value="T-2">T-2</option>
-							        <option value="T-3">T-3</option>
-							        <option value="T-4">T-4</option>
-							        <option value="T-5">T-5</option>
-							        <option value="T-6">T-6</option>
 							      </select>
 							    </div>
 							  </div>
 						</div>
 					</div>
-				<div class="column" id="floor">Floor: </div>
+				<div class="column subtitle is-5" id="floor" style="color: hsl(217, 71%, 53%)">Floor: </div>
 			</div>
 
 			<div class="columns">
 			  	<div class="column is-two-thirds">
-					<p class="subtitle is-5">Teachers Cabins</p>
+					<p class="subtitle is-5" style="color: hsl(48, 100%, 67%)">Teachers Cabins</p>
 					<div class="field">
 					  <div class="control">
 					    <div class="select is-warning">
-					      <select>
-					        <option>Select dropdown</option>
-					        <option>With options</option>
+					      <select id="cabin" onchange="cabin()">
 					      </select>
 					    </div>
 					  </div>
 					</div>
 				</div>
-				<div class="column" id="block">Block : </div>
+				<div class="column subtitle is-5" id="block" style="color: hsl(217, 71%, 53%)">Block : </div>
 			</div>
 
 			<div class="columns">
 			  	<div class="column is-two-thirds">
-					<p class="subtitle is-5">Labs</p>
+					<p class="subtitle is-5" style="color: hsl(204, 86%, 53%)">Labs</p>
 					<div class="field">
 					  <div class="control">
 					    <div class="select is-info">
-					      <select>
-					        <option>Select dropdown</option>
-					        <option>With options</option>
+					      <select id="lab" onchange="lab()">
 					      </select>
 					    </div>
 					  </div>
 					</div>
 				</div>
-				<div class="column" id="des">Description : </div>
+				<div class="column subtitle is-5" id="des" style="color: hsl(217, 71%, 53%)">Description : </div>
 			</div>
+
+			<div class="columns">
+			  	<div class="column is-two-thirds">
+					<p class="subtitle is-5" style="color: hsl(348, 100%, 61%)">Class Rooms</p>
+					<div class="field">
+					  <div class="control">
+					    <div class="select is-danger">
+					      <select id="class" onchange="classf()">
+					      </select>
+					    </div>
+					  </div>
+					</div>
+				</div>
+			</div>
+
 			<br>
 			<p class="subtitle is-5" >Some Missing Details...Add Here:)</p>
 			<a class="button is-link is-outlined" onclick="window.location.href='/add/index.html'">Add</a>
