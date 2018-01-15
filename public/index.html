@@ -3,6 +3,7 @@
 <head>
 	<title>Home - Jiit-128 Academic Infrastructre</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -17,12 +18,12 @@
 							  <div class="control">
 							    <div class="select is-primary">
 							      <select id="lecture" onchange="lecture()">
+								  <option> -- select an option -- </option>
 							      </select>
 							    </div>
 							  </div>
 						</div>
 					</div>
-					<div class="column subtitle is-5" id="room" style="color: hsl(217, 71%, 53%)">Room :  </div>
 			</div>
 
 			<div class="columns">
@@ -32,12 +33,12 @@
 							  <div class="control">
 							    <div class="select is-success">
 							      <select id="tutorial" onchange="tutorial()">
+								  <option> -- select an option -- </option>
 							      </select>
 							    </div>
 							  </div>
 						</div>
 					</div>
-				<div class="column subtitle is-5" id="floor" style="color: hsl(217, 71%, 53%)">Floor: </div>
 			</div>
 
 			<div class="columns">
@@ -47,12 +48,12 @@
 					  <div class="control">
 					    <div class="select is-warning">
 					      <select id="cabin" onchange="cabin()">
+						  <option> -- select an option -- </option>
 					      </select>
 					    </div>
 					  </div>
 					</div>
 				</div>
-				<div class="column subtitle is-5" id="block" style="color: hsl(217, 71%, 53%)">Block : </div>
 			</div>
 
 			<div class="columns">
@@ -62,12 +63,12 @@
 					  <div class="control">
 					    <div class="select is-info">
 					      <select id="lab" onchange="lab()">
+						  <option> -- select an option -- </option>
 					      </select>
 					    </div>
 					  </div>
 					</div>
 				</div>
-				<div class="column subtitle is-5" id="des" style="color: hsl(217, 71%, 53%)">Description : </div>
 			</div>
 
 			<div class="columns">
@@ -77,12 +78,23 @@
 					  <div class="control">
 					    <div class="select is-danger">
 					      <select id="class" onchange="classf()">
+						  <option> -- select an option -- </option>
 					      </select>
 					    </div>
 					  </div>
 					</div>
 				</div>
 			</div>
+		<!--- room details---------------------------------------------------------------------------------->
+		<div class="column subtitle is-5" id="room" style="color: hsl(217, 71%, 53%)">Room :  </div>
+		
+		<div class="column subtitle is-5" id="floor" style="color: hsl(217, 71%, 53%)">Floor: </div>
+		
+		<div class="column subtitle is-5" id="block" style="color: hsl(217, 71%, 53%)">Block : </div>
+		
+		<div class="column subtitle is-5" id="des" style="color: hsl(217, 71%, 53%)">Description : </div>
+		
+		<!-------------------------------------------------------------------------------------------------->
 
 			<br>
 			<p class="subtitle is-5" >Some Missing Details...Add Here:)</p>
@@ -115,6 +127,7 @@
 <script type="text/javascript" src="/index.js"></script>
 <script>
 		$( document ).ready( function() {
+		
 		$( "#addButton" ).click( function() {
 			$( "#addForm" ).toggle( 'slow' );
 		});
